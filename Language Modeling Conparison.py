@@ -135,7 +135,6 @@ class Vocab:
     def encode(self, toks): return [self.stoi.get(t, self.unk_id) for t in toks]
     def decode(self, ids):  return [self.itos[i] for i in ids]
 
-# [修改] 仅用训练tokens建词表，避免验证/测试泄漏
 vocab = Vocab(train_tokens, min_freq=1)
 print("Vocab size:", len(vocab))
 
